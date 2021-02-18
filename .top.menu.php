@@ -3,28 +3,28 @@
 $aMenuLinks = Array(
 	Array(
 		"Компания", 
-		"company/", 
+		"/company/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Новости", 
-		"news/", 
+		"/news/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Продукция", 
-		"products/", 
+		"/products/",
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Услуги", 
-		"services/", 
+		"/services/",
 		Array(), 
 		Array(), 
 		"" 
@@ -32,10 +32,11 @@ $aMenuLinks = Array(
 
     Array(
         "Партнерам",
-        "partners/",
+        "/partners/",
         Array(),
         Array(),
         ""
-    )
+    ),
+
 );
 ?>

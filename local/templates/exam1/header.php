@@ -36,11 +36,11 @@ $timeHour = $objDateTime->format("H");
             <div class="logo-block"><a href="" class="logo">Мебельный магазин</a>
             </div>
             <div class="main-phone-block">
-                <?if($timeHour>=9 && $timeHour<=18){?>
-                <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
-                <?}else{?>
+                <? if ($timeHour >= 9 && $timeHour <= 18) { ?>
+                    <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+                <? } else { ?>
                     <a href="mailto:store@store.ru" class="phone">store@store.ru</a>
-                <?}?>
+                <? } ?>
 
                 <div class="shedule">время работы с 9-00 до 18-00</div>
             </div>
@@ -81,61 +81,23 @@ $timeHour = $objDateTime->format("H");
         <div class="inner-wrap">
             <div class="menu-block popup-wrap">
                 <a href="" class="btn-menu btn-toggle"></a>
-                <div class="menu popup-block">
-                    <ul class="">
-                        <li class="main-page"><a href="">Главная</a>
-                        </li>
-                        <li>
-                            <a href="">Компания</a>
-                            <ul>
-                                <li>
-                                    <a href="">Пункт 1</a>
-                                    <ul>
-                                        <li><a href="">Пункт 1</a>
-                                        </li>
-                                        <li><a href="">Пункт 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Пункт 2</a>
-                                </li>
-                                <li><a href="">Пункт 3</a>
-                                </li>
-                                <li><a href="">Пункт 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="">Новости</a>
-                        </li>
-                        <li>
-                            <a href="">Каталог</a>
-                            <ul>
-                                <li>
-                                    <a href="">Пункт 1</a>
-                                    <ul>
-                                        <li><a href="">Пункт 1</a>
-                                        </li>
-                                        <li><a href="">Пункт 2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Пункт 2</a>
-                                </li>
-                                <li><a href="">Пункт 3</a>
-                                </li>
-                                <li><a href="">Пункт 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="">Фотогалерея</a>
-                        </li>
-                        <li><a href="">Партнерам</a>
-                        </li>
-                        <li><a href="">Контакты</a>
-                        </li>
-                    </ul>
-                    <a href="" class="btn-close"></a>
-                </div>
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "top",
+                    array(
+                        "ALLOW_MULTI_SELECT" => "N",
+                        "CHILD_MENU_TYPE" => "top2",
+                        "DELAY" => "N",
+                        "MAX_LEVEL" => "4",
+                        "MENU_CACHE_GET_VARS" => array(),
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "ROOT_MENU_TYPE" => "top",
+                        "USE_EXT" => "Y",
+                    ),
+                    false
+                ); ?>
                 <div class="menu-overlay"></div>
             </div>
         </div>
@@ -143,13 +105,13 @@ $timeHour = $objDateTime->format("H");
     <!-- /nav -->
     <!-- breadcrumbs -->
     <? if ($APPLICATION->GetCurPage() !== '/') { ?>
-        <div class="breadcrumbs-box">
-            <div class="inner-wrap">
-                <a href="">Главная</a>
-                <a href="">Мебель</a>
-                <span>Выставки и события</span>
-            </div>
-        </div>
+        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "navigation", Array(
+            "PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+            "SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+            "START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+        ),
+            false
+        );?>
     <? } ?>
     <!-- /breadcrumbs -->
     <!-- page -->

@@ -10,40 +10,40 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 <!-- side -->
 <div class="side">
     <!-- side menu -->
-    <div class="side-block side-menu">
-        <div class="title-block">Навигация</div>
-        <div class="menu-block">
-            <ul>
-                <li><a href="">Кухни</a>
-                </li>
-                <li><a href="">Гарнитуры</a>
-                </li>
-                <li class="selected">
-                    <a href="">Спальни</a>
-                </li>
-                <li>
-                    <a href="">Шкафы</a>
-                </li>
-                <li><a href="">Столы</a>
-                </li>
-                <li><a href="">Стулья</a>
-                </li>
-                <li>
-                    <a href="">Прихожие</a>
-                </li>
-                <li><a href="">Диваны</a>
-                </li>
-                <li><a href="">Кресла</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:menu",
+        "left",
+        array(
+            "ALLOW_MULTI_SELECT" => "N",
+            "CHILD_MENU_TYPE" => "left",
+            "DELAY" => "N",
+            "MAX_LEVEL" => "1",
+            "MENU_CACHE_GET_VARS" => array(
+            ),
+            "MENU_CACHE_TIME" => "3600",
+            "MENU_CACHE_TYPE" => "A",
+            "MENU_CACHE_USE_GROUPS" => "Y",
+            "ROOT_MENU_TYPE" => "left",
+            "USE_EXT" => "Y",
+            "COMPONENT_TEMPLATE" => "left"
+        ),
+        false
+    );?>
     <!-- /side menu -->
     <!-- side anonse -->
     <div class="side-block side-anonse">
         <div class="title-block"><span class="i i-title01"></span>Полезная информация!</div>
         <div class="item">
-            <p>Клиенты предпочитают все больше эко-материалов.</p>
+            <p><?$APPLICATION->IncludeComponent(
+                    "bitrix:main.include",
+                    "",
+                    Array(
+                        "AREA_FILE_RECURSIVE" => "Y",
+                        "AREA_FILE_SHOW" => "sect",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => ""
+                    )
+                );?></p>
         </div>
     </div>
     <!-- /side anonse -->
@@ -120,14 +120,25 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         <nav class="main-menu">
             <div class="item">
                 <div class="title-block">О магазине</div>
-                <ul>
-                    <li><a href="">Отзывы</a>
-                    </li>
-                    <li><a href="">Руководство </a>
-                    </li>
-                    <li><a href="">История</a>
-                    </li>
-                </ul>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "bottom",
+                    array(
+                        "ALLOW_MULTI_SELECT" => "N",
+                        "CHILD_MENU_TYPE" => "bottom",
+                        "DELAY" => "N",
+                        "MAX_LEVEL" => "1",
+                        "MENU_CACHE_GET_VARS" => array(
+                        ),
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_TYPE" => "A",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "ROOT_MENU_TYPE" => "bottom",
+                        "USE_EXT" => "Y",
+                        "COMPONENT_TEMPLATE" => "bottom"
+                    ),
+                    false
+                );?>
             </div>
             <div class="item">
                 <div class="title-block">Каталог товаров</div>

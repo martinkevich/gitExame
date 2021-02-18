@@ -1,17 +1,19 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <?
 $aMenuLinks = array(
+
+
     array(
-        "Анонсв",
-        "/",
+        "Как стать партнером",
+        "how_to_become_a_partner.php",
         array(),
         array(),
         ""
     ),
 
     array(
-        "Архив",
-        "./archiveц.php",
+        "Расписание мероприятий",
+        "schedule_of_events/",
         array(),
         array(),
         ""

@@ -3,7 +3,7 @@
 $aMenuLinks = array(
     array(
         "Условия сотрудничества",
-        "./",
+        "/",
         array(),
         array(),
         ""
@@ -11,7 +11,7 @@ $aMenuLinks = array(
 
     array(
         "Как стать партнером",
-        "./how_to_become_a_partner.php",
+        "how_to_become_a_partner.php",
         array(),
         array(),
         ""
