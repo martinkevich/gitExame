@@ -123,7 +123,7 @@ $timeHour = $objDateTime->format("H");
                 <div class="cnt">
                     <? if ($APPLICATION->GetCurPage() !== '/') { ?>
                         <header>
-                            <h1>Заголовок страницы</h1>
+                            <h1><?=$APPLICATION->ShowTitle(false);?></h1>
                         </header>
                         <hr>
                     <? } ?>
