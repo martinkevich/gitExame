@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-prent($arResult);
 ?>
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"];
@@ -24,8 +23,8 @@ prent($arResult);
 <?endif;?>
 
 <?foreach($arResult["ITEMS"] as $arItem):
-
-
+    //prent($arItem);
+    $arItem['DATE_ACTIVE_FROM'] =  $DB->FormatDate($arItem['DATE_ACTIVE_FROM'], "DD.MM.YYYY", "DD MMMM YYYY" ); // 2005-12-31
 
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
@@ -33,13 +32,13 @@ prent($arResult);
         <div class="review-block" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
     <div class="review-text">
 
-        <div class="review-block-title"><span class="review-block-name"><a href="#"><?=$arItem['NAME']?></a></span><span class="review-block-description">12 мая 2020 г., Генеральный директор, CTC-Медиа</span></div>
+        <div class="review-block-title"><span class="review-block-name"><a href="#"><?=$arItem['NAME']?></a></span><span class="review-block-description"><?=$arItem['DATE_ACTIVE_FROM']?>, <?=$arItem['PROPERTIES']['POSITION']['VALUE']?>, <?=$arItem['PROPERTIES']['COMPANY']['VALUE']?></span></div>
 
         <div class="review-text-cont">
             <?=$arItem['PREVIEW_TEXT']?>
         </div>
     </div>
-    <div class="review-img-wrap"><a href="#"><img src="img/rew/photo_1.jpg" alt="img"></a></div>
+    <div class="review-img-wrap"><a href="<?=$arItem['DETAIL_PAGE_URL']?>"><img src="<?=$arItem ['PREVIEW_PICTURE']['SRC']?>" alt="img"></a></div>
 </div>
 
 <?endforeach;?>
