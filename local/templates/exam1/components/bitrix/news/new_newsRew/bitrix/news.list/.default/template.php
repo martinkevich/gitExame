@@ -19,7 +19,9 @@ $this->setFrameMode(true);
 
     <?foreach($arResult["ITEMS"] as $arItem):
         //prent($arItem);
-        $arItem['DATE_ACTIVE_FROM'] =  $DB->FormatDate($arItem['DATE_ACTIVE_FROM'], "DD.MM.YYYY", "DD MMMM YYYY" ); // 2005-12-31
+        $arItem['DATE_ACTIVE_FROM'] =  FormatDate($arItem['DATE_ACTIVE_FROM'], "DD.MM.YYYY", "DD MMMM YYYY" ); // 2005-12-31
+        $arItem['DATE_ACTIVE_FROM'] = FormatDate('j F Y', strtotime( $arItem['DATE_ACTIVE_FROM'] ));
+
 
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
