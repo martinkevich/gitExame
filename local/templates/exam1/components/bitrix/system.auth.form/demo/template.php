@@ -3,7 +3,6 @@
 if ($arResult ['SHOW_ERRORS'] == 'Y' && $arResult ['ERROR'])
     ShowMessage($arResult ['ERROR_MESSAGE']);
 
-prent($arParams);
 CJSCore::Init();
 ?>
 <?

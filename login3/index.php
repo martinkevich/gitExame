@@ -64,6 +64,4 @@ if ($_GET['for_pass'] === 'yes') {
 
 }
 
-//$_GET = null;
-
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

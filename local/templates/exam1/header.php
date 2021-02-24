@@ -3,9 +3,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
-if (!\Bitrix\Main\Loader::includeModule('landing')) {
-    return;
-}
 $objDateTime = new DateTime();
 $timeHour = $objDateTime->format("H");
 ?>
@@ -115,4 +112,6 @@ $timeHour = $objDateTime->format("H");
                             <h1><?=$APPLICATION->ShowTitle(false);?></h1>
                         </header>
                         <hr>
-                    <? } ?>
+                    <? }
+
+                    prent("1");?>
